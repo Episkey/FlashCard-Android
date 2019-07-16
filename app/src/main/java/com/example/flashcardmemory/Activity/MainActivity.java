@@ -1,7 +1,9 @@
-package com.example.flashcardmemory;
+package com.example.flashcardmemory.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.flashcardmemory.R;
 
 public class MainActivity extends AppCompatActivity {
 
