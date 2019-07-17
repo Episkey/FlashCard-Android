@@ -27,7 +27,7 @@ import java.util.Map;
 public class VolleySingleton {
 
     public static final String ERROR_EMAIL = "ERROR_EMAIL";
-    private final static String REQUEST_URL = "http://192.168.8.135:8080/";
+    private final static String REQUEST_URL = "http://192.168.1.11:8080/";
     private static VolleySingleton instance;
     private static Context ctx;
     private RequestQueue requestQueue;
