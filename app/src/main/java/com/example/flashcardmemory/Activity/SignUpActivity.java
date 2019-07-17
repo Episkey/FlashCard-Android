@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.flashcardmemory.Fragment.ListFlashcardFragment;
 import com.example.flashcardmemory.Model.User;
 import com.example.flashcardmemory.R;
 import com.example.flashcardmemory.Singleton.UserSingleton;

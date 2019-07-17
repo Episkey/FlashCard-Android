@@ -15,6 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activity.ListFlashcardActivity"></activity>
+        <activity android:name=".Activity.CreateFlashcardActivity" />
         <activity android:name=".Activity.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,8 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.SignUpActivity" />
-        <activity android:name=".Activity.MainActivity">
-        </activity>
+        <activity android:name=".Activity.MainActivity" />
     </application>
 
 </manifest>

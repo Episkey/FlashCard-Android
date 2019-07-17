@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.flashcardmemory.Fragment.ListFlashcardFragment;
 import com.example.flashcardmemory.Model.Authentication;
 import com.example.flashcardmemory.Model.User;
 import com.example.flashcardmemory.R;
