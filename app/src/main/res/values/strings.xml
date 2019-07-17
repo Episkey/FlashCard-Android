@@ -11,4 +11,11 @@
     <string name="sign_inbt">Sign in</string>
     <string name="sign_in">Sign In</string>
     <string name="you_don_t_have_an_account_yet_sing_up">You don\'t have an account yet ? Sing up</string>
+    <string name="please_fill">Please fill in all the required fields</string>
+    <string name="ok">ok</string>
+    <string name="fail_connexion">connexion fail</string>
+    <string name="please_check">Please check if you\'re connected</string>
+    <string name="error_mail">Error on you mail</string>
+    <string name="warning">Warning</string>
+    <string name="no_account">It\'s seems you doesn\'t have an account anymore</string>
 </resources>
