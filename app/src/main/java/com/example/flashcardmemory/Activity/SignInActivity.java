@@ -83,7 +83,7 @@ public class SignInActivity extends AppCompatActivity {
 
                             } else {
                                 UserSingleton.getInstance().setUser(authentication.getUser());
-                                startActivity(new Intent(SignInActivity.this, MainActivity.class));
+                                startActivity(new Intent(SignInActivity.this, ListFlashcardActivity.class));
                             }
                         }
                     });

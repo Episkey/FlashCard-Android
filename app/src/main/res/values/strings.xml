@@ -18,4 +18,10 @@
     <string name="error_mail">Error on you mail</string>
     <string name="warning">Warning</string>
     <string name="no_account">It\'s seems you doesn\'t have an account anymore</string>
+    <string name="TitleSet">Ttitle</string>
+    <string name="general">General</string>
+    <string name="code">Code</string>
+    <string name="write_the_question_here">Write the question here</string>
+    <string name="write_the_answer_here">Write the answer here</string>
+    <string name="create_flashcard">Create Flashcard</string>
 </resources>

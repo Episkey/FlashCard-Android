@@ -12,6 +12,10 @@ public class Flashcard {
 
     private boolean learned;
 
+    private String general;
+
+    private String code;
+
     private User user;
 
     public Flashcard() {
@@ -64,5 +68,21 @@ public class Flashcard {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getGeneral() {
+        return general;
+    }
+
+    public void setGeneral(String general) {
+        this.general = general;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }
