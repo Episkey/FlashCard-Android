@@ -24,4 +24,5 @@
     <string name="write_the_question_here">Write the question here</string>
     <string name="write_the_answer_here">Write the answer here</string>
     <string name="create_flashcard">Create Flashcard</string>
+    <string name="flcreated">FlashCardCreated</string>
 </resources>

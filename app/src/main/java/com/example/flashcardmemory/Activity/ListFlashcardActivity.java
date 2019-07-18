@@ -11,18 +11,12 @@ import android.view.View;
 
 import com.example.flashcardmemory.Adapter.ListFlashcardAdapter;
 import com.example.flashcardmemory.Model.Flashcard;
-import com.example.flashcardmemory.Model.User;
 import com.example.flashcardmemory.R;
-import com.example.flashcardmemory.Singleton.UserSingleton;
 import com.example.flashcardmemory.Singleton.VolleySingleton;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListFlashcardActivity extends AppCompatActivity {
-
-    UserSingleton userSingleton = UserSingleton.getInstance();
-    User user = userSingleton.getUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

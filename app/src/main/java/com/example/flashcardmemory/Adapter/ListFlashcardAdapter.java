@@ -1,14 +1,17 @@
 package com.example.flashcardmemory.Adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.flashcardmemory.Activity.ListFlashcardActivity;
+import com.example.flashcardmemory.Activity.SignInActivity;
 import com.example.flashcardmemory.Model.Flashcard;
 import com.example.flashcardmemory.R;
 
@@ -17,6 +20,7 @@ import java.util.List;
 public class ListFlashcardAdapter extends RecyclerView.Adapter<ListFlashcardAdapter.IdviewHolder> {
 
     private List<Flashcard> listFlashcard;
+    private Context context;
 
     public ListFlashcardAdapter(List<Flashcard> listFlashcard) {
         this.listFlashcard = listFlashcard;
@@ -44,7 +48,13 @@ public class ListFlashcardAdapter extends RecyclerView.Adapter<ListFlashcardAdap
                 //TODO: supprimer la flashcard dans la bd et dans la liste.
             }
         });
-        //TODO: faire click pour envoi vers fragment.
+        idviewHolder.container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(this, flashCardFlipFragment);
+
+            }
+        });
     }
 
     @Override
@@ -56,10 +66,12 @@ public class ListFlashcardAdapter extends RecyclerView.Adapter<ListFlashcardAdap
         public TextView title;
         public ImageButton btModify;
         public ImageButton btDelete;
+        public View container;
 
 
         public IdviewHolder(View v) {
             super(v);
+            container = v;
             title = v.findViewById(R.id.tvFlashCardName);
             btModify = v.findViewById(R.id.btEdit);
             btDelete = v.findViewById(R.id.btDelete);
