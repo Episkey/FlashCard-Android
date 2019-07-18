@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.flashcardmemory.Model.Flashcard;
@@ -53,13 +54,13 @@ public class ListFlashcardAdapter extends RecyclerView.Adapter<ListFlashcardAdap
 
     public static class IdviewHolder extends RecyclerView.ViewHolder {
         public TextView title;
-        public Button btModify;
-        public Button btDelete;
+        public ImageButton btModify;
+        public ImageButton btDelete;
 
 
         public IdviewHolder(View v) {
             super(v);
-            title = v.findViewById(R.id.tvTitleFlashcard);
+            title = v.findViewById(R.id.tvFlashCardName);
             btModify = v.findViewById(R.id.btEdit);
             btDelete = v.findViewById(R.id.btDelete);
         }

@@ -69,4 +69,20 @@ public class Flashcard {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public String getGeneral() {
+        return general;
+    }
+
+    public void setGeneral(String general) {
+        this.general = general;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
 }
