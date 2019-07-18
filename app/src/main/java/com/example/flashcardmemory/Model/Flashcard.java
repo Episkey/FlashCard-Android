@@ -12,9 +12,9 @@ public class Flashcard {
 
     private boolean learned;
 
-    private String general;
+    private boolean general;
 
-    private String code;
+    private boolean code;
 
     private User user;
 
@@ -70,19 +70,19 @@ public class Flashcard {
         this.user = user;
     }
 
-    public String getGeneral() {
+    public boolean isGeneral() {
         return general;
     }
 
-    public void setGeneral(String general) {
+    public void setGeneral(boolean general) {
         this.general = general;
     }
 
-    public String getCode() {
+    public boolean isCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(boolean code) {
         this.code = code;
     }
 }
