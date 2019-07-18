@@ -12,6 +12,10 @@ public class Flashcard {
 
     private boolean learned;
 
+    private String general;
+
+    private String code;
+
     private User user;
 
     public Flashcard() {

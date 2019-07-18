@@ -52,7 +52,7 @@ public class SignUpActivity extends AppCompatActivity {
                         @Override
                         public void accept(User user) {
                             UserSingleton.getInstance().setUser(user);
-                            startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
+                            startActivity(new Intent(SignUpActivity.this, ListFlashcardActivity.class));
                             Toast.makeText(SignUpActivity.this, "User created", Toast.LENGTH_LONG).show();
                         }
                     });
