@@ -1,5 +1,6 @@
 package com.example.flashcardmemory.Activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -22,6 +23,7 @@ public class ListFlashcardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_flashcard);
+
 
         FloatingActionButton fbCreateFlashcard = findViewById(R.id.fbAddFlashcard);
         fbCreateFlashcard.setOnClickListener(new View.OnClickListener() {
