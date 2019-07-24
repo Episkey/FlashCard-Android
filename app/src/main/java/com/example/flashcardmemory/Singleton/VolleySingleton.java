@@ -201,4 +201,32 @@ public class VolleySingleton {
         );
         requestQueue.add(jsonObjectRequest);
     }
+
+    public void getFlashcardById(Long idFlashcard, final Consumer<Flashcard> listener) {
+        String url = REQUEST_URL + "flashcards/" + idFlashcard;
+
+        final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("VOLLEY_SUCCESS", response.toString());
+                        GsonBuilder gsonBuilder = new GsonBuilder();
+                        gsonBuilder.setDateFormat("M/d/yy hh:mm a");
+                        Gson gson = gsonBuilder.create();
+                        Flashcard flashcard = (gson.fromJson(response.toString(), Flashcard.class));
+                        listener.accept(flashcard);
+                    }
+                },
+                new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("VOLLEY_ERROR", "onErrorResponse: " + error.getMessage());
+                    }
+                }
+        );
+        requestQueue.add(jsonObjectRequest);
+    }
 }

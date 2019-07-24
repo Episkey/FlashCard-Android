@@ -10,8 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.flashcardmemory.Activity.ListFlashcardActivity;
-import com.example.flashcardmemory.Activity.SignInActivity;
+import com.example.flashcardmemory.Activity.FlipcardViewActivity;
 import com.example.flashcardmemory.Model.Flashcard;
 import com.example.flashcardmemory.R;
 
@@ -20,9 +19,8 @@ import java.util.List;
 public class ListFlashcardAdapter extends RecyclerView.Adapter<ListFlashcardAdapter.IdviewHolder> {
 
     private List<Flashcard> listFlashcard;
-    private Context context;
 
-    public ListFlashcardAdapter(List<Flashcard> listFlashcard) {
+    public ListFlashcardAdapter(List<Flashcard> listFlashcard ) {
         this.listFlashcard = listFlashcard;
     }
 
@@ -51,8 +49,10 @@ public class ListFlashcardAdapter extends RecyclerView.Adapter<ListFlashcardAdap
         idviewHolder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(this, flashCardFlipFragment);
-
+                //TODO: make intent for going to activity.
+                Intent intent = new Intent (v.getContext(), FlipcardViewActivity.class);
+                intent.putExtra("flashcardId", listFlashcard.get(i).getIdFlashcard());
+                v.getContext().startActivity(intent);
             }
         });
     }
