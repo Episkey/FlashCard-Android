@@ -1,6 +1,5 @@
 package com.example.flashcardmemory.Adapter;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -20,7 +19,7 @@ public class ListFlashcardAdapter extends RecyclerView.Adapter<ListFlashcardAdap
 
     private List<Flashcard> listFlashcard;
 
-    public ListFlashcardAdapter(List<Flashcard> listFlashcard ) {
+    public ListFlashcardAdapter(List<Flashcard> listFlashcard) {
         this.listFlashcard = listFlashcard;
     }
 
@@ -34,12 +33,6 @@ public class ListFlashcardAdapter extends RecyclerView.Adapter<ListFlashcardAdap
     @Override
     public void onBindViewHolder(@NonNull final IdviewHolder idviewHolder, final int i) {
         idviewHolder.title.setText(listFlashcard.get(i).getName());
-        idviewHolder.btModify.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TODO: ENvoyer vers modification flashcard
-            }
-        });
         idviewHolder.btDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,8 +42,7 @@ public class ListFlashcardAdapter extends RecyclerView.Adapter<ListFlashcardAdap
         idviewHolder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: make intent for going to activity.
-                Intent intent = new Intent (v.getContext(), FlipcardViewActivity.class);
+                Intent intent = new Intent(v.getContext(), FlipcardViewActivity.class);
                 intent.putExtra("flashcardId", listFlashcard.get(i).getIdFlashcard());
                 v.getContext().startActivity(intent);
             }
@@ -58,8 +50,7 @@ public class ListFlashcardAdapter extends RecyclerView.Adapter<ListFlashcardAdap
         if (listFlashcard.get(i).isLearned()) {
             idviewHolder.tvIsLearned.setText("Learned");
             idviewHolder.tvIsLearned.setVisibility(View.VISIBLE);
-        }
-        else {
+        } else {
             idviewHolder.tvIsLearned.setVisibility(View.GONE);
         }
     }
@@ -71,7 +62,6 @@ public class ListFlashcardAdapter extends RecyclerView.Adapter<ListFlashcardAdap
 
     public static class IdviewHolder extends RecyclerView.ViewHolder {
         public TextView title;
-        public ImageButton btModify;
         public ImageButton btDelete;
         public View container;
         public TextView tvIsLearned;
@@ -81,7 +71,6 @@ public class ListFlashcardAdapter extends RecyclerView.Adapter<ListFlashcardAdap
             super(v);
             container = v;
             title = v.findViewById(R.id.tvFlashCardName);
-            btModify = v.findViewById(R.id.btEdit);
             btDelete = v.findViewById(R.id.btDelete);
             tvIsLearned = v.findViewById(R.id.tvIsLearned);
         }
