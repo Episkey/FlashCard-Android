@@ -1,7 +1,6 @@
 package com.example.flashcardmemory.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.flashcardmemory.Activity.ListFlashcardActivity;
-import com.example.flashcardmemory.Activity.SignInActivity;
 import com.example.flashcardmemory.Model.Flashcard;
 import com.example.flashcardmemory.R;
 
@@ -51,8 +48,8 @@ public class ListFlashcardAdapter extends RecyclerView.Adapter<ListFlashcardAdap
         idviewHolder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(this, flashCardFlipFragment);
-
+                //TODO: make intent for going to activity.
+                //context.startActivity(this, FlashCardSeenActivity.class);
             }
         });
     }
