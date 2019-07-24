@@ -2,15 +2,21 @@ package com.example.flashcardmemory.Activity;
 
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
+import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.util.Consumer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.flashcardmemory.Model.Flashcard;
 import com.example.flashcardmemory.R;
 import com.example.flashcardmemory.Singleton.VolleySingleton;
+
+import java.util.List;
 
 public class FlipcardViewActivity extends AppCompatActivity {
 
@@ -19,6 +25,7 @@ public class FlipcardViewActivity extends AppCompatActivity {
     private boolean mIsBackVisible = false;
     private View mCardFrontLayout;
     private View mCardBackLayout;
+    private Flashcard current;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +34,28 @@ public class FlipcardViewActivity extends AppCompatActivity {
 
         Bundle bdl = getIntent().getExtras();
         final Long idFlashcard = bdl.getLong("flashcardId");
+
+        VolleySingleton.getInstance(getApplicationContext()).getFlashcard(new Consumer<List<Flashcard>>() {
+            @Override
+            public void accept(final List<Flashcard> flashcards) {
+
+                Button btNext = findViewById(R.id.btNextFlashCard);
+                btNext.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (flashcards.size() > idFlashcard) {
+                            Intent intent = new Intent(v.getContext(), FlipcardViewActivity.class);
+                            intent.putExtra("flashcardId", idFlashcard + 1);
+                            v.getContext().startActivity(intent);
+                        } else {
+                            Intent intent = new Intent(v.getContext(), FlipcardViewActivity.class);
+                            intent.putExtra("flashcardId", flashcards.get(0).getIdFlashcard());
+                            v.getContext().startActivity(intent);
+                        }
+                    }
+                });
+            }
+        });
 
         VolleySingleton.getInstance(getApplicationContext()).getFlashcardById(idFlashcard, new Consumer<Flashcard>() {
             @Override
@@ -38,6 +67,33 @@ public class FlipcardViewActivity extends AppCompatActivity {
                 findViews();
                 loadAnimations();
                 changeCameraDistance();
+                current = flashcard;
+            }
+        });
+
+        Button btLearned = findViewById(R.id.btLearned);
+        btLearned.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                if (current == null) {
+                    return;
+                }
+                if (current.isLearned()) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(FlipcardViewActivity.this);
+                    builder.setMessage(getString(R.string.alreadyLearned));
+                    builder.setPositiveButton(getString(R.string.ok), null);
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                } else {
+                    current.setLearned(true);
+                    VolleySingleton.getInstance(getApplicationContext()).updateFlashcard(idFlashcard, current, new Consumer<Flashcard>() {
+                        @Override
+                        public void accept(Flashcard flashcard) {
+                            Toast.makeText(FlipcardViewActivity.this, "Flashcard Learned !", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(FlipcardViewActivity.this, ListFlashcardActivity.class));
+                        }
+                    });
+                }
             }
         });
     }

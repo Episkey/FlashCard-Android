@@ -27,4 +27,5 @@
     <string name="flcreated">FlashCardCreated</string>
     <string name="front">Front</string>
     <string name="back">Back</string>
+    <string name="alreadyLearned">Already set Learned</string>
 </resources>

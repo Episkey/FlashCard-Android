@@ -32,27 +32,6 @@
             tools:text="FlashcardName" />
 
         <ImageButton
-            android:id="@+id/btEdit"
-            style="@style/Widget.AppCompat.ImageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_marginBottom="8dp"
-            android:adjustViewBounds="false"
-            android:background="@color/colorPrimaryDark"
-            android:baselineAlignBottom="true"
-            android:cropToPadding="true"
-            android:scaleType="centerCrop"
-            android:scrollbarThumbVertical="@color/colorAccent"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btDelete"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/ic_menu_edit" />
-
-        <ImageButton
             android:id="@+id/btDelete"
             style="@style/Widget.AppCompat.ImageButton"
             android:layout_width="0dp"
@@ -73,6 +52,21 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@android:drawable/ic_menu_delete" />
+
+        <TextView
+            android:id="@+id/tvIsLearned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btDelete"
+            app:layout_constraintStart_toEndOf="@+id/tvFlashCardName"
+            tools:text="Learned" />
 
     </android.support.constraint.ConstraintLayout>
 
