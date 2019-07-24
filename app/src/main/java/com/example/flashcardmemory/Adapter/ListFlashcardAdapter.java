@@ -55,6 +55,13 @@ public class ListFlashcardAdapter extends RecyclerView.Adapter<ListFlashcardAdap
                 v.getContext().startActivity(intent);
             }
         });
+        if (listFlashcard.get(i).isLearned()) {
+            idviewHolder.tvIsLearned.setText("Learned");
+            idviewHolder.tvIsLearned.setVisibility(View.VISIBLE);
+        }
+        else {
+            idviewHolder.tvIsLearned.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -67,6 +74,7 @@ public class ListFlashcardAdapter extends RecyclerView.Adapter<ListFlashcardAdap
         public ImageButton btModify;
         public ImageButton btDelete;
         public View container;
+        public TextView tvIsLearned;
 
 
         public IdviewHolder(View v) {
@@ -75,6 +83,7 @@ public class ListFlashcardAdapter extends RecyclerView.Adapter<ListFlashcardAdap
             title = v.findViewById(R.id.tvFlashCardName);
             btModify = v.findViewById(R.id.btEdit);
             btDelete = v.findViewById(R.id.btDelete);
+            tvIsLearned = v.findViewById(R.id.tvIsLearned);
         }
     }
 }

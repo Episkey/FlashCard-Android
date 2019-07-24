@@ -229,4 +229,49 @@ public class VolleySingleton {
         );
         requestQueue.add(jsonObjectRequest);
     }
+
+    public void updateFlashcard(final Long idFlashcard, Flashcard flashcard, final Consumer<Flashcard> listener) {
+
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        final Gson gson = gsonBuilder.create();
+        String url = REQUEST_URL + "flashcards/" + idFlashcard;
+        final String requestBody = gson.toJson(flashcard);
+
+        final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.PUT, url, null,
+                new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("VOLLEY_SUCCESS", response.toString());
+                        GsonBuilder gsonBuilder = new GsonBuilder();
+                        gsonBuilder.setDateFormat("M/d/yy hh:mm a");
+                        Gson gson = gsonBuilder.create();
+                        Flashcard flashcard = (gson.fromJson(response.toString(), Flashcard.class));
+
+                        listener.accept(flashcard);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.e("Error: ", error.getMessage());
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json");
+                return headers;
+            }
+
+            @Override
+            public byte[] getBody() {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                    return requestBody == null ? null : requestBody.getBytes(StandardCharsets.UTF_8);
+                }
+                return null;
+            }
+        };
+        requestQueue.add(jsonObjectRequest);
+    }
 }
