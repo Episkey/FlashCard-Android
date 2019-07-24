@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.flashcardmemory.Fragment.ListFlashcardFragment;
 import com.example.flashcardmemory.Model.Authentication;
 import com.example.flashcardmemory.Model.User;
 import com.example.flashcardmemory.R;
@@ -84,7 +83,7 @@ public class SignInActivity extends AppCompatActivity {
 
                             } else {
                                 UserSingleton.getInstance().setUser(authentication.getUser());
-                                startActivity(new Intent(SignInActivity.this, ListFlashcardFragment.class));
+                                startActivity(new Intent(SignInActivity.this, ListFlashcardActivity.class));
                             }
                         }
                     });

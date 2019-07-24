@@ -12,17 +12,19 @@ import com.example.flashcardmemory.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ListFlashcardFragment extends Fragment {
+public class flashCardFlipFragment extends Fragment {
 
 
-    public ListFlashcardFragment() {
+    public flashCardFlipFragment() {
         // Required empty public constructor
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list_flashcard, container, false);
+        return inflater.inflate(R.layout.fragment_flash_card_flip, container, false);
     }
+
 }

@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.flashcardmemory.Fragment.ListFlashcardFragment;
 import com.example.flashcardmemory.Model.User;
 import com.example.flashcardmemory.R;
 import com.example.flashcardmemory.Singleton.UserSingleton;
@@ -53,7 +52,7 @@ public class SignUpActivity extends AppCompatActivity {
                         @Override
                         public void accept(User user) {
                             UserSingleton.getInstance().setUser(user);
-                            startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
+                            startActivity(new Intent(SignUpActivity.this, ListFlashcardActivity.class));
                             Toast.makeText(SignUpActivity.this, "User created", Toast.LENGTH_LONG).show();
                         }
                     });
